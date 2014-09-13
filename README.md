@@ -7,4 +7,5 @@ Contributors
 ===========
 
 BusFaster Oy: Juha Järvi
+
 University of Helsinki: Accessibility Research Group
