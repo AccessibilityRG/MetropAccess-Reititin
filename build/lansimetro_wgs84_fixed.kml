@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><Folder><name>lansimetro_wgs84_fixed</name>
+<Schema name="lansimetro_wgs84_fixed" id="lansimetro_wgs84_fixed">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="Description" type="string"></SimpleField>
+	<SimpleField name="OBJECTID" type="int"></SimpleField>
+	<SimpleField name="Frequency" type="int"></SimpleField>
+	<SimpleField name="Duration" type="float"></SimpleField>
+	<SimpleField name="Length" type="float"></SimpleField>
+	<SimpleField name="FirstStop" type="string"></SimpleField>
+	<SimpleField name="LastStop" type="string"></SimpleField>
+	<SimpleField name="RouteID" type="int"></SimpleField>
+	<SimpleField name="Sequence" type="int"></SimpleField>
+	<SimpleField name="Shape_Leng" type="float"></SimpleField>
+</Schema>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">1</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1623.28378671000</SimpleData>
+		<SimpleData name="FirstStop">Kivenlahti</SimpleData>
+		<SimpleData name="LastStop">Saunalahti</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">14</SimpleData>
+		<SimpleData name="Shape_Leng">0.02125689368</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.634653579499286,60.155383275617851 24.629538638597467,60.15640019301469 24.626978360463113,60.157053527998073 24.62287188872682,60.159091484384646 24.617533367371152,60.166106270088449</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">2</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">2140.79913109000</SimpleData>
+		<SimpleData name="FirstStop">Ruoholahti</SimpleData>
+		<SimpleData name="LastStop">Lauttasaari</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">1</SimpleData>
+		<SimpleData name="Shape_Leng">0.03629368551</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.913841156044668,60.162710609906867 24.90701072416573,60.162556352793615 24.905433637052852,60.162629637647854 24.903440239375698,60.163579910784449 24.9009853186177,60.164164274062159 24.892170611784479,60.162108436455355 24.878352964717692,60.159302724341444</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">3</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1496.62442470000</SimpleData>
+		<SimpleData name="FirstStop">Lauttasaari</SimpleData>
+		<SimpleData name="LastStop">Koivusaari</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">2</SimpleData>
+		<SimpleData name="Shape_Leng">0.02486630738</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.878352964717692,60.159302724341444 24.878113714476513,60.159254126776716 24.873335595761318,60.158926378749527 24.871457264541277,60.158975417881379 24.86930841724984,60.159167548144012 24.867506112916942,60.159724638581395 24.864505852263449,60.160776846274587 24.863224932584728,60.161555030540399 24.862521926246075,60.161787610509975 24.861731486918757,60.161900172355217 24.860271093136589,60.162149834947115 24.854262084028107,60.163722219505019</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">4</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">3.00000000000</SimpleData>
+		<SimpleData name="Length">2368.58492689000</SimpleData>
+		<SimpleData name="FirstStop">Koivusaari</SimpleData>
+		<SimpleData name="LastStop">Keilaniemi</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">3</SimpleData>
+		<SimpleData name="Shape_Leng">0.03433520890</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.854262084028107,60.163722219505019 24.851200803474455,60.164523106256524 24.841407521839812,60.166200537025304 24.830924156224967,60.167767572415698 24.828631209662774,60.169073853875432 24.826599268841335,60.171670399869242 24.82822184546194,60.175536068235147 24.828491876798864,60.175964865886044</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">5</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1333.70942074000</SimpleData>
+		<SimpleData name="FirstStop">Keilaniemi</SimpleData>
+		<SimpleData name="LastStop">Otaniemi</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">4</SimpleData>
+		<SimpleData name="Shape_Leng">0.01742883650</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.828491876798864,60.175964865886044 24.82917528331285,60.177050029235602 24.830724099337885,60.177971286645743 24.833027226225681,60.180567836236833 24.832518059760787,60.181157266294974 24.830655847989135,60.182955187332198 24.828853227994216,60.183948668396511 24.825929719081444,60.184498875422946 24.823457122148625,60.184544410796093</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">6</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1724.23407725000</SimpleData>
+		<SimpleData name="FirstStop">Otaniemi</SimpleData>
+		<SimpleData name="LastStop">Tapiola</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">5</SimpleData>
+		<SimpleData name="Shape_Leng">0.02372160860</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.823457122148625,60.184544410796093 24.822383879312724,60.184564161706874 24.819292107245133,60.184502043734483 24.815482400092833,60.183389788308261 24.814043700656441,60.182062509477419 24.811849709196906,60.17869193858229 24.809811371497744,60.17593475298662 24.807434608120843,60.175436274064964 24.803722559248854,60.174900123442114</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">7</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1280.61597063000</SimpleData>
+		<SimpleData name="FirstStop">Tapiola</SimpleData>
+		<SimpleData name="LastStop">Urheilupuisto</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">6</SimpleData>
+		<SimpleData name="Shape_Leng">0.02296124878</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.803722559248854,60.174900123442114 24.800239573097997,60.174396947361402 24.794405640408115,60.174432022719827 24.780798304298457,60.174572968068162</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">8</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">1.00000000000</SimpleData>
+		<SimpleData name="Length">1172.95398962000</SimpleData>
+		<SimpleData name="FirstStop">Urheilupuisto</SimpleData>
+		<SimpleData name="LastStop">Niittykumpu</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">7</SimpleData>
+		<SimpleData name="Shape_Leng">0.01861798404</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.780798304298457,60.174572968068162 24.775410812159407,60.174628385191966 24.772108436855035,60.174297659509534 24.770824980188877,60.173818884733919 24.769370070472519,60.173450441484874 24.765804432129016,60.171180475298854 24.763192968181102,60.170132899114151</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">9</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1821.34692009000</SimpleData>
+		<SimpleData name="FirstStop">Niittykumpu</SimpleData>
+		<SimpleData name="LastStop">Matinkylä</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">8</SimpleData>
+		<SimpleData name="Shape_Leng">0.02672613447</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.763192968181102,60.170132899114151 24.757861623415351,60.167993886808574 24.753200893206838,60.165306027251518 24.751396702096315,60.163920058663962 24.750077500976033,60.162864507291374 24.748126875055391,60.161800969938952 24.745169151435334,60.160810687763217 24.739888365655702,60.159909320658812 24.73896444535302,60.159742488325321</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">10</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1824.76200296000</SimpleData>
+		<SimpleData name="FirstStop">Matinkylä</SimpleData>
+		<SimpleData name="LastStop">Suomenoja</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">9</SimpleData>
+		<SimpleData name="Shape_Leng">0.03117291038</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.73896444535302,60.159742488325321 24.736826495146772,60.159356408471638 24.726524110899163,60.157152406658383 24.709529291243939,60.154096353863793 24.708369420312636,60.153798626105868</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">11</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1307.47678358000</SimpleData>
+		<SimpleData name="FirstStop">Suomenoja</SimpleData>
+		<SimpleData name="LastStop">Kaitaa</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">10</SimpleData>
+		<SimpleData name="Shape_Leng">0.02085842724</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.708369420312636,60.153798626105868 24.706176047586666,60.153235565968771 24.702263543427932,60.152947620136729 24.701590110395443,60.152642455884802 24.699346851376276,60.152440572474632 24.698102378522094,60.152162151362347 24.695441793604061,60.152019216713654 24.693362347894208,60.151023354244558 24.692252386638472,60.150340450451608 24.691382604623641,60.149751278498854 24.688569136756428,60.14849760378155</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">12</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1500.19774672000</SimpleData>
+		<SimpleData name="FirstStop">Kaitaa</SimpleData>
+		<SimpleData name="LastStop">Soukka</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">11</SimpleData>
+		<SimpleData name="Shape_Leng">0.02216589191</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.688569136756428,60.14849760378155 24.68532463642299,60.147051667500648 24.683769119549368,60.145539801021187 24.680209295322868,60.142914117892417 24.67811961892545,60.141792824279605 24.67582572897436,60.141400817893611 24.669597292481228,60.141876863226798 24.66852638968129,60.141980713339422</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">13</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1127.16383092000</SimpleData>
+		<SimpleData name="FirstStop">Soukka</SimpleData>
+		<SimpleData name="LastStop">Espoonlahti</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">12</SimpleData>
+		<SimpleData name="Shape_Leng">0.01553851407</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.66852638968129,60.141980713339422 24.663323141649812,60.142485161061529 24.660336842971105,60.143421539672488 24.65968791556503,60.144070697304983 24.659558360130404,60.144736297242503 24.6589075144704,60.146060369090947 24.657772333526509,60.147398997365997 24.655681730827382,60.148482490674553</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">14</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1416.82037512000</SimpleData>
+		<SimpleData name="FirstStop">Espoonlahti</SimpleData>
+		<SimpleData name="LastStop">Kivenlahti</SimpleData>
+		<SimpleData name="RouteID">1</SimpleData>
+		<SimpleData name="Sequence">13</SimpleData>
+		<SimpleData name="Shape_Leng">0.02225753487</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.655681730827382,60.148482490674553 24.653133993739004,60.149802760189402 24.649501683256233,60.151601731634798 24.643624689228204,60.153279511340543 24.640173202731262,60.154285609893122 24.634653579499286,60.155383275617851</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">15</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1623.28378671000</SimpleData>
+		<SimpleData name="FirstStop">Saunalahti</SimpleData>
+		<SimpleData name="LastStop">Kivenlahti</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">1</SimpleData>
+		<SimpleData name="Shape_Leng">0.02125689368</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.617533367371152,60.166106270088449 24.62287188872682,60.159091484384646 24.626978360463113,60.157053527998073 24.629538638597467,60.15640019301469 24.634653579499286,60.155383275617851</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">16</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">2140.79913109000</SimpleData>
+		<SimpleData name="FirstStop">Lauttasaari</SimpleData>
+		<SimpleData name="LastStop">Ruoholahti</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">14</SimpleData>
+		<SimpleData name="Shape_Leng">0.03629368551</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.878352964717692,60.159302724341444 24.892170611784479,60.162108436455355 24.9009853186177,60.164164274062159 24.903440239375698,60.163579910784449 24.905433637052852,60.162629637647854 24.90701072416573,60.162556352793615 24.913841156044668,60.162710609906867</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">17</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1496.62442470000</SimpleData>
+		<SimpleData name="FirstStop">Koivusaari</SimpleData>
+		<SimpleData name="LastStop">Lauttasaari</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">13</SimpleData>
+		<SimpleData name="Shape_Leng">0.02486630738</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.854262084028107,60.163722219505019 24.860271093136589,60.162149834947115 24.861731486918757,60.161900172355217 24.862521926246075,60.161787610509975 24.863224932584728,60.161555030540399 24.864505852263449,60.160776846274587 24.867506112916942,60.159724638581395 24.86930841724984,60.159167548144012 24.871457264541277,60.158975417881379 24.873335595761318,60.158926378749527 24.878113714476513,60.159254126776716 24.878352964717692,60.159302724341444</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">18</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">3.00000000000</SimpleData>
+		<SimpleData name="Length">2368.58492689000</SimpleData>
+		<SimpleData name="FirstStop">Keilaniemi</SimpleData>
+		<SimpleData name="LastStop">Koivusaari</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">12</SimpleData>
+		<SimpleData name="Shape_Leng">0.03433520890</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.828491876798864,60.175964865886044 24.82822184546194,60.175536068235147 24.826599268841335,60.171670399869242 24.828631209662774,60.169073853875432 24.830924156224967,60.167767572415698 24.841407521839812,60.166200537025304 24.851200803474455,60.164523106256524 24.854262084028107,60.163722219505019</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">19</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1333.70942074000</SimpleData>
+		<SimpleData name="FirstStop">Otaniemi</SimpleData>
+		<SimpleData name="LastStop">Keilaniemi</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">11</SimpleData>
+		<SimpleData name="Shape_Leng">0.01742883650</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.823457122148625,60.184544410796093 24.825929719081444,60.184498875422946 24.828853227994216,60.183948668396511 24.830655847989135,60.182955187332198 24.832518059760787,60.181157266294974 24.833027226225681,60.180567836236833 24.830724099337885,60.177971286645743 24.82917528331285,60.177050029235602 24.828491876798864,60.175964865886044</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">20</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1724.23407725000</SimpleData>
+		<SimpleData name="FirstStop">Tapiola</SimpleData>
+		<SimpleData name="LastStop">Otaniemi</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">10</SimpleData>
+		<SimpleData name="Shape_Leng">0.02372160860</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.803722559248854,60.174900123442114 24.807434608120843,60.175436274064964 24.809811371497744,60.17593475298662 24.811849709196906,60.17869193858229 24.814043700656441,60.182062509477419 24.815482400092833,60.183389788308261 24.819292107245133,60.184502043734483 24.822383879312724,60.184564161706874 24.823457122148625,60.184544410796093</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">21</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1280.61597063000</SimpleData>
+		<SimpleData name="FirstStop">Urheilupuisto</SimpleData>
+		<SimpleData name="LastStop">Tapiola</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">9</SimpleData>
+		<SimpleData name="Shape_Leng">0.02296124878</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.780798304298457,60.174572968068162 24.794405640408115,60.174432022719827 24.800239573097997,60.174396947361402 24.803722559248854,60.174900123442114</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">22</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">1.00000000000</SimpleData>
+		<SimpleData name="Length">1172.95398962000</SimpleData>
+		<SimpleData name="FirstStop">Niittykumpu</SimpleData>
+		<SimpleData name="LastStop">Urheilupuisto</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">8</SimpleData>
+		<SimpleData name="Shape_Leng">0.01861798404</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.763192968181102,60.170132899114151 24.765804432129016,60.171180475298854 24.769370070472519,60.173450441484874 24.770824980188877,60.173818884733919 24.772108436855035,60.174297659509534 24.775410812159407,60.174628385191966 24.780798304298457,60.174572968068162</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">23</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1821.34692009000</SimpleData>
+		<SimpleData name="FirstStop">Matinkylä</SimpleData>
+		<SimpleData name="LastStop">Niittykumpu</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">7</SimpleData>
+		<SimpleData name="Shape_Leng">0.02672613447</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.73896444535302,60.159742488325321 24.739888365655702,60.159909320658812 24.745169151435334,60.160810687763217 24.748126875055391,60.161800969938952 24.750077500976033,60.162864507291374 24.751396702096315,60.163920058663962 24.753200893206838,60.165306027251518 24.757861623415351,60.167993886808574 24.763192968181102,60.170132899114151</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">24</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1824.76200296000</SimpleData>
+		<SimpleData name="FirstStop">Suomenoja</SimpleData>
+		<SimpleData name="LastStop">Matinkylä</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">6</SimpleData>
+		<SimpleData name="Shape_Leng">0.03117291038</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.708369420312636,60.153798626105868 24.709529291243939,60.154096353863793 24.726524110899163,60.157152406658383 24.736826495146772,60.159356408471638 24.73896444535302,60.159742488325321</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">25</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1307.47678358000</SimpleData>
+		<SimpleData name="FirstStop">Kaitaa</SimpleData>
+		<SimpleData name="LastStop">Suomenoja</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">5</SimpleData>
+		<SimpleData name="Shape_Leng">0.02085842724</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.688569136756428,60.14849760378155 24.691382604623641,60.149751278498854 24.692252386638472,60.150340450451608 24.693362347894208,60.151023354244558 24.695441793604061,60.152019216713654 24.698102378522094,60.152162151362347 24.699346851376276,60.152440572474632 24.701590110395443,60.152642455884802 24.702263543427932,60.152947620136729 24.706176047586666,60.153235565968771 24.708369420312636,60.153798626105868</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">26</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1500.19774672000</SimpleData>
+		<SimpleData name="FirstStop">Soukka</SimpleData>
+		<SimpleData name="LastStop">Kaitaa</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">4</SimpleData>
+		<SimpleData name="Shape_Leng">0.02216589191</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.66852638968129,60.141980713339422 24.669597292481228,60.141876863226798 24.67582572897436,60.141400817893611 24.67811961892545,60.141792824279605 24.680209295322868,60.142914117892417 24.683769119549368,60.145539801021187 24.68532463642299,60.147051667500648 24.688569136756428,60.14849760378155</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">27</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1127.16383092000</SimpleData>
+		<SimpleData name="FirstStop">Espoonlahti</SimpleData>
+		<SimpleData name="LastStop">Soukka</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">3</SimpleData>
+		<SimpleData name="Shape_Leng">0.01553851407</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.655681730827382,60.148482490674553 24.657772333526509,60.147398997365997 24.6589075144704,60.146060369090947 24.659558360130404,60.144736297242503 24.65968791556503,60.144070697304983 24.660336842971105,60.143421539672488 24.663323141649812,60.142485161061529 24.66852638968129,60.141980713339422</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#lansimetro_wgs84_fixed">
+		<SimpleData name="OBJECTID">28</SimpleData>
+		<SimpleData name="Frequency">4</SimpleData>
+		<SimpleData name="Duration">2.00000000000</SimpleData>
+		<SimpleData name="Length">1416.82037512000</SimpleData>
+		<SimpleData name="FirstStop">Kivenlahti</SimpleData>
+		<SimpleData name="LastStop">Espoonlahti</SimpleData>
+		<SimpleData name="RouteID">2</SimpleData>
+		<SimpleData name="Sequence">2</SimpleData>
+		<SimpleData name="Shape_Leng">0.02225753487</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>24.634653579499286,60.155383275617851 24.640173202731262,60.154285609893122 24.643624689228204,60.153279511340543 24.649501683256233,60.151601731634798 24.653133993739004,60.149802760189402 24.655681730827382,60.148482490674553</coordinates></LineString>
+  </Placemark>
+</Folder></Document></kml>

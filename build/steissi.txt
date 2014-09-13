@@ -1,0 +1,2 @@
+ID;resolved_x;resolved_y
+1;24.940752;60.171052
