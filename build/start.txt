@@ -1,3 +1,0 @@
-id;x;y;name
-TKK;2545843;6675256;TKK/T-osasto
-Koti;2551575;6673199;Lapinlahdenkatu

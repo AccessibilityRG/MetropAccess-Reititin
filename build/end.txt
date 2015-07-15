@@ -1,5 +1,0 @@
-id;resolved x;resolved y;query street;query street number;query street city;resolved name;resolved street number;resolved city;accuracy;type;code;category;latitude;longitude
-Gentti;2545048;6675525;Maanmittausosasto
-Physicum;2553579;6677480;Kumpulan kampus
-Itis;2559901;6678077;Itis bussilaituri
-Porthania;2552834;6673538;Porthanian piha
