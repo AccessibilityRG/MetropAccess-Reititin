@@ -1,0 +1,16 @@
+# Kamppi
+1040285	Kamppi, laituri 55	1040412	Kamppi (M)	50	# From Kamppi bus platforms to bus stop across the street from nearest entrance.
+1040285	Kamppi, laituri 55	1040413	Kamppi (M)	50	# From Kamppi bus platforms to bus stop next to nearest entrance.
+1040290	Kamppi, kaukoliik.	1040291	Kamppi, kaukoliik.	35	# From one end of long distance traffic terminal to the other.
+
+# Pasila
+1174501,1174502,1174551,1174552  Pasila/VR   1174147  Pasilan asema   150	# Platforms to bridge in front of station.
+1174501,1174502,1174551,1174552  Pasila/VR   1173435,1220434  Pasilan asema   150	# Platforms over walkway bridge to across the street on the east side.
+1174501,1174502,1174551,1174552  Pasila/VR   1174401  Pasilan asema   150	# Platforms over walkway bridge to across the street on the east side.
+1174401  Pasilan asema   1173435,1220434  Pasilan asema   25	# Crossing street on east side.
+
+# Itäkeskus
+1453287	Itäkeskus (M)	1453182	Itäkeskus (M)	50	# West side of Tallinnanaukio through the metro station.
+1453112	Itäkeskus (M), tulo	1453601,1453602	Itäkeskus	5
+1453136	Itäkeskus (M)	1453118	Puotinharju	200	# Walking across while Tallinnanaukio and crossing bridge towards Stoa.
+1453118	Puotinharju	1455130	Asiakkaankatu	400	# Walking from Stoa through Tallinnanaukio, Itäkeskus, Hansasilta.
