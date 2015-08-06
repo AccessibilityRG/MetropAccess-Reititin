@@ -4,7 +4,7 @@ reach.Api.js is main that reads input parameter and starts the program.
 
 reach.Api.js:
 
-1. Handle the input arguments --> reach.core.Opt 
+1. Handle the input arguments --> [reach.core.Opt](src/reach/core/Opt.js) 
 2. Initiate the transportation network --> city = reach.trans.City()
 3. Initiate the OSM road network --> net = reach.road.Net(city)
 4. Initiate Batch --> batch = reach.route.Batch(net, city)
