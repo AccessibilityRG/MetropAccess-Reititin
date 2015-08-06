@@ -64,9 +64,15 @@
 
         reach.control.initTasks(opt,null,city,net,conf);
 
-4. Add origin/destination points and loadTile to depList (a taskList) --> 
+4. Add origin/destination points loadTile function to depList (a taskList) --> [reach.task.Task] (src/reach/task/Task.js):
  
         parseSrc.addDep(fetchSrc);
-		parseSrc.addDep(reach.control.ModelTasks.road.tree.parse.task);
-		parseDst.addDep(fetchDst);
+		
+5. Add loadTile function to depList (a taskList) --> [reach.task.Modeltasks.read.tree.parse -function] (src/reach/task/ModelTasks.js):		
+
 		parseDst.addDep(reach.control.ModelTasks.road.tree.parse.task);
+		
+6. Run test2 function that starts to actually do stuff
+
+        routeTask=test2(parseSrc,parseDst);
+        
