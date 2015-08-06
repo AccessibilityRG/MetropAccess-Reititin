@@ -42,22 +42,22 @@
 2. Fetch and parse origin/destination points --> [reach.task.Fetch() & reach.task.Custom()](src/reach/task/Fetch.js):
     - returns an [InputSet](src/reach/loc/InputSet.js) converted to map units using [Deg.js](src/reach/Deg.js) & [MU.js](src/reach/MU.js)         
         
-        var fetchSrc=new reach.task.Fetch('Load source points',opt.def.src,'ISO-8859-1');
-		var parseSrc=new reach.task.Custom('Parse source points',
-			/** @param {reach.task.Task} task */
-			function(task) {
-				if(!fetchSrc.result.data) return(null);
-				return(srcPtSet.importList(fetchSrc.result.data,srcProj,dstProj,opt.def.src));
-			}
-		);
-        var fetchDst=new reach.task.Fetch('Load target points',opt.def.dst,'ISO-8859-1');
-		var parseDst=new reach.task.Custom('Parse target points',
-			/** @param {reach.task.Task} task */
-			function(task) {
-				if(!fetchDst.result.data) return(null);
-				return(dstPtSet.importList(fetchDst.result.data,srcProj,dstProj,opt.def.dst));
-			}
-		);
+    var fetchSrc=new reach.task.Fetch('Load source points',opt.def.src,'ISO-8859-1');
+	var parseSrc=new reach.task.Custom('Parse source points',
+		/** @param {reach.task.Task} task */
+		function(task) {
+			if(!fetchSrc.result.data) return(null);
+			return(srcPtSet.importList(fetchSrc.result.data,srcProj,dstProj,opt.def.src));
+		}
+	);
+    var fetchDst=new reach.task.Fetch('Load target points',opt.def.dst,'ISO-8859-1');
+	var parseDst=new reach.task.Custom('Parse target points',
+		/** @param {reach.task.Task} task */
+		function(task) {
+			if(!fetchDst.result.data) return(null);
+			return(dstPtSet.importList(fetchDst.result.data,srcProj,dstProj,opt.def.dst));
+		}
+	);
 		
 3. Initiate tasks but do not run them yet --> [reach.control.initTasks()](src/reach/control/ModelTasks.js)
 
