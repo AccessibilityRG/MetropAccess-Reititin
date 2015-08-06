@@ -105,11 +105,6 @@ var init=function() {
 	batch=new reach.route.Batch(net,city);
 	conf=new reach.route.Conf(city);
 	dispatch=new reach.control.Dispatch();
-globalCity=city;
-globalNet=net;
-globalBatch=batch;
-globalConf=conf;
-globalFrequency=opt.def.freq;
 
 //	searchConf=/** @type {Object.<string,*>} */ {};
 	searchConf=null;
@@ -129,12 +124,10 @@ globalFrequency=opt.def.freq;
 	extraPtSet=new reach.loc.InputSet(net,reach.loc.InputSet.Type.EXTRA);
 	eventSet=new reach.loc.EventSet(conf.maxWalk);
 	dijkstra=new reach.route.Dijkstra();
-	globalDijkstra=dijkstra;
 	outList=[];
 
-var extraLineList;
-
-extraLineList=[];
+	var extraLineList;
+	extraLineList=[];
 
 	/** @param {reach.task.Task} parseSrc
 	  * @param {reach.task.Task} parseDst
@@ -145,190 +138,180 @@ extraLineList=[];
 
 		updateResults=null;
 
-var extraPtList;
-var extraLine;
-var loc;
+		var extraPtList;
+		var extraLine;
+		var loc;
 
-extraPtList=[];
+		extraPtList=[];
 
-/*
-loc=new reach.loc.Outdoor(new reach.Deg(60.1717,24.9420).toMU());
-loc.name='foo';
-extraPtList.push(loc);
-loc=new reach.loc.Outdoor(new reach.Deg(60.2919,25.0439).toMU());
-loc.name='quux';
-extraPtList.push(loc);
-*/
-
-var data;
-if(opt.def.extra) {
-	data=fs.readFileSync(opt.def.extra.replace(/\.shp$/,".prj"),{'encoding':'utf8'});
-	var extraProj=new Proj4js.Proj(data);
-	var dstProj=new Proj4js.Proj('EPSG:4326');
-	//var dstProj=new Proj4js.Proj('EPSG:2392');
-}
-
-var path;
-var stat;
-var shapeList;
-var shapeNum,shapeCount;
-var shpLen,dbfLen;
-var shpBuf,dbfBuf;
-var row;
-var raw;
-var linePtList;
-
-if(opt.def.extra) {
-	path=opt.def.extra;
-	stat=fs.statSync(path);
-	shpLen=stat.size;
-
-	raw=fs.readFileSync(path);
-	shpBuf=new gis.io.NodeStream(gis.io.Stream.Endian.LITTLE,raw);
-
-	path=opt.def.extra.replace(/\.shp$/,".dbf");
-	stat=fs.statSync(path);
-	dbfLen=stat.size;
-
-	raw=fs.readFileSync(path);
-	dbfBuf=new gis.io.NodeStream(gis.io.Stream.Endian.LITTLE,raw);
-
-	var shp;
-
-	shp=new gis.format.Shp();
-
-	var ptNum,ptCount;
-
-	shapeList=[];
-	shp.importStream(shpBuf,shpLen,dbfBuf,dbfLen,extraProj,dstProj);
-	while(1) {
-		row=shp.readShape();
-		if(!row) break;
-		shapeList.push(row);
-	}
-
-	shapeCount=shapeList.length;
-	for(shapeNum=shapeCount;shapeNum--;) {
-		ptList=shapeList[shapeNum][0];
-		if(!ptList[0] || !ptList[ptList.length-1]) {
-			console.log('Warning: no coordinates for row:');
-			console.log(shapeList[shapeNum]);
-			shapeList.splice(shapeNum,1);
-			continue;
+		var data;
+		if(opt.def.extra) {
+			data=fs.readFileSync(opt.def.extra.replace(/\.shp$/,".prj"),{'encoding':'utf8'});
+			var extraProj=new Proj4js.Proj(data);
+			var dstProj=new Proj4js.Proj('EPSG:4326');
 		}
-	}
 
-//	shapeList.sort(function(a,b) {return(a[1].routeid-b[1].routeid||a[1].sequence-b[1].sequence);});
-	shapeList.sort(function(a,b) {
-		if(a[1].routeid>b[1].routeid) return(1);
-		if(a[1].routeid<b[1].routeid) return(-1);
-		return(a[1].sequence-b[1].sequence);
-	});
+		var path;
+		var stat;
+		var shapeList;
+		var shapeNum,shapeCount;
+		var shpLen,dbfLen;
+		var shpBuf,dbfBuf;
+		var row;
+		var raw;
+		var linePtList;
 
-	loc=new reach.loc.Outdoor(shapeList[0][0][0]);
-	loc.row=shapeList[0][1];
-	loc.name=shapeList[0][1].firststop;
-	extraPtList[0]=loc;
+		if(opt.def.extra) {
+			path=opt.def.extra;
+			stat=fs.statSync(path);
+			shpLen=stat.size;
 
-	shapeCount=shapeList.length;
-	for(shapeNum=0;shapeNum<shapeCount;shapeNum++) {
-		ptList=shapeList[shapeNum][0];
-		loc=new reach.loc.Outdoor(ptList[ptList.length-1]);
-		loc.row=shapeList[shapeNum][1];
-		loc.name=shapeList[shapeNum][1].laststop;
-		if(shapeList[shapeNum][1].firststop) extraPtList[shapeNum].name=shapeList[shapeNum][1].firststop;
-		extraPtList[shapeNum+1]=loc;
-	}
+			raw=fs.readFileSync(path);
+			shpBuf=new gis.io.NodeStream(gis.io.Stream.Endian.LITTLE,raw);
 
-	prevRouteId=null;
+			path=opt.def.extra.replace(/\.shp$/,".dbf");
+			stat=fs.statSync(path);
+			dbfLen=stat.size;
 
-var durationList;
+			raw=fs.readFileSync(path);
+			dbfBuf=new gis.io.NodeStream(gis.io.Stream.Endian.LITTLE,raw);
 
-	ptCount=extraPtList.length;
-	for(ptNum=0;ptNum<ptCount;ptNum++) {
-		loc=extraPtList[ptNum];
-		if(loc.row['routeid']!=prevRouteId) {
-			linePtList=[];
-			durationList=[];
-			extraLine=new reach.trans.ExtraLine(linePtList);
-			extraLine.routeId=loc.row['routeid'];
-			extraLine.durationList=durationList;
-			extraLineList.push(extraLine);
-			prevRouteId=loc.row['routeid'];
-		} else durationList.push(loc.row['duration']);
-		linePtList.push(loc);
-	}
-}
+			var shp;
+			shp=new gis.format.Shp();
+			var ptNum,ptCount;
 
+			shapeList=[];
+			shp.importStream(shpBuf,shpLen,dbfBuf,dbfLen,extraProj,dstProj);
+			while(1) {
+				row=shp.readShape();
+				if(!row) break;
+				shapeList.push(row);
+			}
 
+			shapeCount=shapeList.length;
+			for(shapeNum=shapeCount;shapeNum--;) {
+				ptList=shapeList[shapeNum][0];
+				if(!ptList[0] || !ptList[ptList.length-1]) {
+					console.log('Warning: no coordinates for row:');
+					console.log(shapeList[shapeNum]);
+					shapeList.splice(shapeNum,1);
+					continue;
+				}
+			}
+
+			shapeList.sort(function(a,b) {
+				if(a[1].routeid>b[1].routeid) return(1);
+				if(a[1].routeid<b[1].routeid) return(-1);
+				return(a[1].sequence-b[1].sequence);
+			});
+
+			loc=new reach.loc.Outdoor(shapeList[0][0][0]);
+			loc.row=shapeList[0][1];
+			loc.name=shapeList[0][1].firststop;
+			extraPtList[0]=loc;
+
+			shapeCount=shapeList.length;
+			for(shapeNum=0;shapeNum<shapeCount;shapeNum++) {
+				ptList=shapeList[shapeNum][0];
+				loc=new reach.loc.Outdoor(ptList[ptList.length-1]);
+				loc.row=shapeList[shapeNum][1];
+				loc.name=shapeList[shapeNum][1].laststop;
+				if(shapeList[shapeNum][1].firststop) extraPtList[shapeNum].name=shapeList[shapeNum][1].firststop;
+				extraPtList[shapeNum+1]=loc;
+			}
+
+			prevRouteId=null;
+
+			var durationList;
+
+			ptCount=extraPtList.length;
+			for(ptNum=0;ptNum<ptCount;ptNum++) {
+				loc=extraPtList[ptNum];
+				if(loc.row['routeid']!=prevRouteId) {
+					linePtList=[];
+					durationList=[];
+					extraLine=new reach.trans.ExtraLine(linePtList);
+					extraLine.routeId=loc.row['routeid'];
+					extraLine.durationList=durationList;
+					extraLineList.push(extraLine);
+					prevRouteId=loc.row['routeid'];
+				} else durationList.push(loc.row['duration']);
+				linePtList.push(loc);
+			}
+		}
 
 		bindTask=new reach.task.Custom('Bind points',
 			/** @param {reach.task.Task} task */
 			function(task) {
-var extraNum,extraCount;
-var extra;
+			var extraNum,extraCount;
+			var extra;
 
-extraCount=extraPtList.length;
-for(extraNum=0;extraNum<extraCount;extraNum++) {
-	extra=extraPtList[extraNum];
-	extraPtSet.insertLocation(extra);
-}
-				eventSet.clear();
-				eventSet.importSet(srcPtSet);
-				eventSet.importSet(dstPtSet);
-				eventSet.importSet(extraPtSet);
-				return(batch.bindPoints(task,eventSet,dijkstra,conf));
+			extraCount=extraPtList.length;
+			for(extraNum=0;extraNum<extraCount;extraNum++) {
+				extra=extraPtList[extraNum];
+				extraPtSet.insertLocation(extra);
+			}
+			eventSet.clear();
+			eventSet.importSet(srcPtSet);
+			eventSet.importSet(dstPtSet);
+			eventSet.importSet(extraPtSet);
+			return(batch.bindPoints(task,eventSet,dijkstra,conf));
 			}
 		);
 
 		routeTask=new reach.task.Custom('Find routes',
 			/** @param {reach.task.Task} task */
 			function(task) {
-var extraNum,extraCount;
-var extra;
-var walkList;
-var walkNum,walkCount;
-var walkLeg;
-var extraNode,node;
+				var extraNum,extraCount;
+				var extra;
+				var walkList;
+				var walkNum,walkCount;
+				var walkLeg;
+				var extraNode,node;
 
-//extraLine=extraLineList[0];
+				//extraLine=extraLineList[0];
 
-extraCount=extraLineList.length;
-for(extraNum=0;extraNum<extraCount;extraNum++) {
-	extraLine=extraLineList[extraNum];
-	ptList=extraLine.ptList;
-	ptCount=ptList.length;
-	for(ptNum=0;ptNum<ptCount;ptNum++) {
-		extra=ptList[ptNum];
-		extraNode=new reach.road.Node(extra.ll);
-		extra.node=extraNode;
+				extraCount=extraLineList.length;
+				for(extraNum=0;extraNum<extraCount;extraNum++) {
+					extraLine=extraLineList[extraNum];
+					ptList=extraLine.ptList;
+					ptCount=ptList.length;
 
-		extraNode.followerCount=0;
-		extraNode.followerList=[];
-		extraNode.distList=[];
-		extraNode.stopList=[];
-		extraNode.extraLine=extraLine;
-		extraNode.extraPos=ptNum;
+					for(ptNum=0;ptNum<ptCount;ptNum++) {
+						extra=ptList[ptNum];
+						extraNode=new reach.road.Node(extra.ll);
+						extra.node=extraNode;
 
-		walkList=extra.walkList[reach.loc.Outdoor.Type.GRAPH];
-		if(walkList) {
-			walkCount=walkList.length;
-			for(walkNum=0;walkNum<walkCount;walkNum++) {
-				walkLeg=walkList[walkNum].leg;
-				node=walkLeg.startNode;
-				if(!node.followerList) continue;
+						extraNode.followerCount=0;
+						extraNode.followerList=[];
+						extraNode.distList=[];
+						extraNode.stopList=[];
+						extraNode.extraLine=extraLine;
+						extraNode.extraPos=ptNum;
 
-//console.log(walkLeg);
-//console.log(walkLeg.startNode);
-				extraNode.connectTo(node,walkLeg.dist);
-				node.connectTo(extraNode,walkLeg.dist);
-//		console.log(extra.walkList[reach.loc.Outdoor.Type.GRAPH]);
-			}
-		}
-	}
-}
-//console.log(extraLineList[0].ptList.length);
-//				batch.routing=false;return(null);
+						walkList=extra.walkList[reach.loc.Outdoor.Type.GRAPH];
+						if(walkList) {
+							walkCount=walkList.length;
+							for(walkNum=0;walkNum<walkCount;walkNum++) {
+								walkLeg=walkList[walkNum].leg;
+								node=walkLeg.startNode;
+								if(!node.followerList) continue;
+
+								//console.log(walkLeg);
+								//console.log(walkLeg.startNode);
+				
+								extraNode.connectTo(node,walkLeg.dist);
+								node.connectTo(extraNode,walkLeg.dist);
+
+								//console.log(extra.walkList[reach.loc.Outdoor.Type.GRAPH]);
+							}
+						}
+					}
+				}
+
+				//console.log(extraLineList[0].ptList.length);
+				//batch.routing=false;return(null);
+
 				return(batch.findRoutes(task,srcPtSet,dstPtSet,dijkstra,updateResults,conf));
 			}
 		);
@@ -366,13 +349,14 @@ for(extraNum=0;extraNum<extraCount;extraNum++) {
 		var showTask=new reach.task.Custom('Show routes',
 			/** @param {reach.task.Task} task */
 			function(task) {
-//				net.routing=false;
+				// net.routing=false;
+
 				map.roadLayer.refresh();
 				return(null);
 			}
 		);
 
-//		net.routing=true;
+		//net.routing=true;
 
 		routeTask=test2(null,null);
 		showTask.addDep(routeTask);
@@ -380,7 +364,7 @@ for(extraNum=0;extraNum<extraCount;extraNum++) {
 		dispatch.runTask(showTask);
 	}
 
-//	dispatch.run(reach.control.ModelTasks.preload);
+	//dispatch.run(reach.control.ModelTasks.preload);
 
 	if(reach.env.platform==reach.env.Type.BROWSER) {
 	} else {
@@ -409,7 +393,7 @@ for(extraNum=0;extraNum<extraCount;extraNum++) {
 
 		if(opt.def.outKML) outList.push(new reach.out.KML(opt.def.outKML,conf));
 		if(opt.def.outAVG) outList.push(new reach.out.AVG(opt.def.outAVG,conf));
-//		if(opt.def.outCSV) outList.push(new reach.out.CSV(opt.def.outCSV,conf));
+		//if(opt.def.outCSV) outList.push(new reach.out.CSV(opt.def.outCSV,conf));
 
 		reach.control.initTasks(opt,null,city,net,conf);
 

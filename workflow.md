@@ -3,11 +3,7 @@
 
 **Initiate everything:**
 
-    reach.Api.init=function() {
-        return(new reach.Api());
-    };
-
-[reach.Api.js](src/reach/Api.js) is the main that reads input arguments and starts the program:
+[build/task-main.js](build/task-main.js) is the main that reads input arguments and starts the program:
 
 1. Handle the input arguments --> [reach.core.Opt](src/reach/core/Opt.js) 
 2. Initiate the transportation network --> city = [reach.trans.City()](src/reach/trans/City.js)
