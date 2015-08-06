@@ -97,12 +97,12 @@
         
     - Start iterating eventList (contains orig/dest points) and find walking routes from input points to stops and other input points --> case steps.nextEvent:
         
-        if(event.type==reach.loc.EventSet.Type.WALK) {
-					bindRunId=dijkstra.runId;
-					step=steps.initRouting;
-					console.log('Finding roads from '+event.pt.id);
-					break;
-				}
+            if(event.type==reach.loc.EventSet.Type.WALK) {
+                        bindRunId=dijkstra.runId;
+                        step=steps.initRouting;
+                        console.log('Finding roads from '+event.pt.id);
+                        break;
+                    }
         
         
     - Initialize Routing using --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js) --> case steps.initRouting:
