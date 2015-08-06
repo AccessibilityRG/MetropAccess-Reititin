@@ -106,9 +106,8 @@
 				}
         
         
-    - Initialize Routing using --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js):
-        - case steps.initRouting
-      
+    - Initialize Routing using --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js) --> case steps.initRouting:
+  
         node=event.pt.node
         
         dijkstra.onVisitGraphNode=function(dijkstra,visitor,node) {
