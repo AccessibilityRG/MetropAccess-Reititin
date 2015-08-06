@@ -2,6 +2,9 @@
 
 
 **Initiate everything:**
+>   reach.Api.init=function() {
+>      return(new reach.Api());
+>   };
 
 [reach.Api.js](src/reach/Api.js) is the main that reads input arguments and starts the program:
 
