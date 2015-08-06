@@ -107,26 +107,26 @@
         
     - Initialize Routing using --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js) --> case steps.initRouting:
   
-        node=event.pt.node
-        
-        dijkstra.onVisitGraphNode=function(dijkstra,visitor,node) {
-            var leg;
-            graphNodeCount++;
-            if(graphNodeCount<conf.nodeNearMax) {
-                leg=visitor.getLeg(conf);
-                leg.startNode=node;
-                leg.endLoc=event.pt;
-                event.pt.addWalk(leg,reach.loc.Outdoor.Type.GRAPH,conf.forward?reach.route.result.Leg.Dir.BACKWARD:reach.route.result.Leg.Dir.FORWARD);
-                node.addWalk(leg,conf.forward?reach.route.result.Leg.Dir.FORWARD:reach.route.result.Leg.Dir.BACKWARD);
-            } else if(stopCount>=conf.stopNearMax) {
-                dijkstra.stop();
+            node=event.pt.node
+            
+            dijkstra.onVisitGraphNode=function(dijkstra,visitor,node) {
+                var leg;
+                graphNodeCount++;
+                if(graphNodeCount<conf.nodeNearMax) {
+                    leg=visitor.getLeg(conf);
+                    leg.startNode=node;
+                    leg.endLoc=event.pt;
+                    event.pt.addWalk(leg,reach.loc.Outdoor.Type.GRAPH,conf.forward?reach.route.result.Leg.Dir.BACKWARD:reach.route.result.Leg.Dir.FORWARD);
+                    node.addWalk(leg,conf.forward?reach.route.result.Leg.Dir.FORWARD:reach.route.result.Leg.Dir.BACKWARD);
+                } else if(stopCount>=conf.stopNearMax) {
+                    dijkstra.stop();
+                }
             }
-        }
 
     
     - Search for stops and routing graph nodes up to maxWalk meters. Start from a road network tile node:
         
-        dijkstra.startWayNode(node,conf,loadTile);
+            dijkstra.startWayNode(node,conf,loadTile);
         
     
 
