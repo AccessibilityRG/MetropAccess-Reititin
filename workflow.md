@@ -95,8 +95,7 @@
         
         batch.bindPoints(task,eventSet,dijkstra,conf)
         
-    - Start iterating eventList (contains orig/dest points) and find walking routes from input points to stops and other input points:
-        - case steps.nextEvent 
+    - Start iterating eventList (contains orig/dest points) and find walking routes from input points to stops and other input points --> case steps.nextEvent:
         
         if(event.type==reach.loc.EventSet.Type.WALK) {
 					bindRunId=dijkstra.runId;
