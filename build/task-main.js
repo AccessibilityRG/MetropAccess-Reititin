@@ -98,17 +98,14 @@ var init=function() {
 		dst:['dst','DESTINATION','end.txt','List of route destination points']
 	},['src','dst'],'Reititin','0.9.6.5');
 
-	startPt=new reach.Deg(60.17129,24.94167);
-	endPt=new reach.Deg(60.17129,24.95);
-	city=new reach.trans.City();
+    city=new reach.trans.City();
 	net=new reach.road.Net(city);
 	batch=new reach.route.Batch(net,city);
 	conf=new reach.route.Conf(city);
 	dispatch=new reach.control.Dispatch();
-
-//	searchConf=/** @type {Object.<string,*>} */ {};
 	searchConf=null;
 	var confData=null;
+
 	try {
 		confData=fs.readFileSync(opt.def.conf,'utf8');
 		if(confData) {
@@ -118,14 +115,12 @@ var init=function() {
 	} catch(e) {}
 
 	if(opt.def.date) conf.dateText=opt.def.date;
-
 	srcPtSet=new reach.loc.InputSet(net,reach.loc.InputSet.Type.SRC);
 	dstPtSet=new reach.loc.InputSet(net,reach.loc.InputSet.Type.DST);
 	extraPtSet=new reach.loc.InputSet(net,reach.loc.InputSet.Type.EXTRA);
 	eventSet=new reach.loc.EventSet(conf.maxWalk);
 	dijkstra=new reach.route.Dijkstra();
 	outList=[];
-
 	var extraLineList;
 	extraLineList=[];
 
@@ -135,16 +130,13 @@ var init=function() {
 	function test2(parseSrc,parseDst) {
 		var bindTask,routeTask,showTask;
 		var updateResults;
-
 		updateResults=null;
-
 		var extraPtList;
 		var extraLine;
 		var loc;
-
 		extraPtList=[];
-
 		var data;
+
 		if(opt.def.extra) {
 			data=fs.readFileSync(opt.def.extra.replace(/\.shp$/,".prj"),{'encoding':'utf8'});
 			var extraProj=new Proj4js.Proj(data);
@@ -179,8 +171,8 @@ var init=function() {
 			var shp;
 			shp=new gis.format.Shp();
 			var ptNum,ptCount;
-
 			shapeList=[];
+
 			shp.importStream(shpBuf,shpLen,dbfBuf,dbfLen,extraProj,dstProj);
 			while(1) {
 				row=shp.readShape();
@@ -221,10 +213,9 @@ var init=function() {
 			}
 
 			prevRouteId=null;
-
 			var durationList;
-
 			ptCount=extraPtList.length;
+
 			for(ptNum=0;ptNum<ptCount;ptNum++) {
 				loc=extraPtList[ptNum];
 				if(loc.row['routeid']!=prevRouteId) {
@@ -268,10 +259,8 @@ var init=function() {
 				var walkNum,walkCount;
 				var walkLeg;
 				var extraNode,node;
-
-				//extraLine=extraLineList[0];
-
 				extraCount=extraLineList.length;
+
 				for(extraNum=0;extraNum<extraCount;extraNum++) {
 					extraLine=extraLineList[extraNum];
 					ptList=extraLine.ptList;
@@ -288,31 +277,23 @@ var init=function() {
 						extraNode.stopList=[];
 						extraNode.extraLine=extraLine;
 						extraNode.extraPos=ptNum;
-
 						walkList=extra.walkList[reach.loc.Outdoor.Type.GRAPH];
+
 						if(walkList) {
 							walkCount=walkList.length;
 							for(walkNum=0;walkNum<walkCount;walkNum++) {
 								walkLeg=walkList[walkNum].leg;
 								node=walkLeg.startNode;
 								if(!node.followerList) continue;
-
-								//console.log(walkLeg);
-								//console.log(walkLeg.startNode);
-				
 								extraNode.connectTo(node,walkLeg.dist);
 								node.connectTo(extraNode,walkLeg.dist);
-
-								//console.log(extra.walkList[reach.loc.Outdoor.Type.GRAPH]);
 							}
 						}
 					}
 				}
 
-				//console.log(extraLineList[0].ptList.length);
-				//batch.routing=false;return(null);
-
 				return(batch.findRoutes(task,srcPtSet,dstPtSet,dijkstra,updateResults,conf));
+
 			}
 		);
 
@@ -320,8 +301,8 @@ var init=function() {
 			/** @param {reach.task.Task} task */
 			function(task) {
 				var outNum,outCount;
-
 				outCount=outList.length;
+
 				for(outNum=0;outNum<outCount;outNum++) {
 					outList[outNum].writeRoutes(srcPtSet,dstPtSet,batch.result);
 				}
@@ -349,22 +330,14 @@ var init=function() {
 		var showTask=new reach.task.Custom('Show routes',
 			/** @param {reach.task.Task} task */
 			function(task) {
-				// net.routing=false;
-
 				map.roadLayer.refresh();
 				return(null);
 			}
 		);
-
-		//net.routing=true;
-
 		routeTask=test2(null,null);
 		showTask.addDep(routeTask);
-
 		dispatch.runTask(showTask);
 	}
-
-	//dispatch.run(reach.control.ModelTasks.preload);
 
 	if(reach.env.platform==reach.env.Type.BROWSER) {
 	} else {
@@ -373,6 +346,7 @@ var init=function() {
 
 		/** @type {reach.task.Fetch} */
 		var fetchSrc=new reach.task.Fetch('Load source points',opt.def.src,'ISO-8859-1');
+
 		var parseSrc=new reach.task.Custom('Parse source points',
 			/** @param {reach.task.Task} task */
 			function(task) {
@@ -383,6 +357,7 @@ var init=function() {
 
 		/** @type {reach.task.Fetch} */
 		var fetchDst=new reach.task.Fetch('Load target points',opt.def.dst,'ISO-8859-1');
+
 		var parseDst=new reach.task.Custom('Parse target points',
 			/** @param {reach.task.Task} task */
 			function(task) {
