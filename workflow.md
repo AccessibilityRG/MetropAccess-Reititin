@@ -83,10 +83,10 @@
 
 2. Insert origin / destination InputSets into a SplayTree (finds the closest road network by Walking) and get information about the tile that the point falls under
     - Insert points one at the time to splay tree using function: reach.loc.EventSet.prototype.insert=function(ll,mode,pt,tile)
-        - > this.insert(loc.ll,reach.loc.EventSet.Type.WALK,loc,null);
+         > this.insert(loc.ll,reach.loc.EventSet.Type.WALK,loc,null);
             - Insert point to [Splay tree](src/reach/data/SplayTree.js) and gather information about Mode, point, & tile:
-                - > leaf=this.tree.insert(ll);
-                - > data.push({type:mode,pt:pt,tile:tile});
+                > leaf=this.tree.insert(ll);
+                > data.push({type:mode,pt:pt,tile:tile});
                 
         
     
