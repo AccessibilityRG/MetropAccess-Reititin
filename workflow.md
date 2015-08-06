@@ -90,7 +90,48 @@
             
           > leaf=this.tree.insert(ll);
           > data.push({type:mode,pt:pt,tile:tile});
-                
+          
+3. Bind orig/dest points to road network --> [reach.route.Batch](src/reach/route/Batch.js):
+        
+        batch.bindPoints(task,eventSet,dijkstra,conf)
+        
+    - Start iterating eventList (contains orig/dest points) and find walking routes from input points to stops and other input points:
+        - case steps.nextEvent 
+        
+        if(event.type==reach.loc.EventSet.Type.WALK) {
+					bindRunId=dijkstra.runId;
+					step=steps.initRouting;
+					console.log('Finding roads from '+event.pt.id);
+					break;
+				}
+        
+        
+    - Initialize Routing using --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js):
+        - case steps.initRouting
+      
+        node=event.pt.node
+        
+        /** @param {reach.route.Dijkstra} dijkstra
+    	  * @param {reach.route.WayVisitor} visitor
+		  * @param {reach.road.Node} node */
+					dijkstra.onVisitGraphNode=function(dijkstra,visitor,node) {
+						var leg;
+						graphNodeCount++;
+						if(graphNodeCount<conf.nodeNearMax) {
+							leg=visitor.getLeg(conf);
+							leg.startNode=node;
+							leg.endLoc=event.pt;
+							event.pt.addWalk(leg,reach.loc.Outdoor.Type.GRAPH,conf.forward?reach.route.result.Leg.Dir.BACKWARD:reach.route.result.Leg.Dir.FORWARD);
+							node.addWalk(leg,conf.forward?reach.route.result.Leg.Dir.FORWARD:reach.route.result.Leg.Dir.BACKWARD);
+						} else if(stopCount>=conf.stopNearMax) {
+							dijkstra.stop();
+						}
+					}
+        
+    
+    - Search for stops and routing graph nodes up to maxWalk meters. Start from a road network tile node:
+        
+        dijkstra.startWayNode(node,conf,loadTile);
         
     
 
