@@ -3,6 +3,7 @@
 
 **Initiate everything:**
 >   reach.Api.init=function() {
+>
 >      return(new reach.Api());
 >   };
 
