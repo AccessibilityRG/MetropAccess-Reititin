@@ -18,9 +18,9 @@ goog.require('gis.format.Shp');
 
 var globalBestCost={};
 var globalBestRoute={};
-
 var srid;
 
+// Check required node.js modules
 if(reach.env.platform==reach.env.Type.NODE) {
 	// Node.js modules.
 	path=require('path');
@@ -45,9 +45,6 @@ if(reach.env.platform==reach.env.Type.NODE) {
 var globalMap=null;
 /** @type {reach.route.Dijkstra} */
 var globalDijkstra=null;
-
-//if(typeof(window)=='undefined') window={};
-//if(!window.performance) window.performance={memory:{usedJSHeapSize:0}};
 
 var init=function() {
 	/** @type {reach.control.Dispatch} */
@@ -320,25 +317,7 @@ var init=function() {
 		return(showTask);
 	}
 
-	/** @param {reach.map.OpenLayers} map */
-	function test(map) {
-		var routeTask,showTask;
-
-		// Old routing task needs to be killed before calling the following!
-		net.tree.clearData(reach.road.Tile.Persist.QUERY);
-
-		var showTask=new reach.task.Custom('Show routes',
-			/** @param {reach.task.Task} task */
-			function(task) {
-				map.roadLayer.refresh();
-				return(null);
-			}
-		);
-		routeTask=test2(null,null);
-		showTask.addDep(routeTask);
-		dispatch.runTask(showTask);
-	}
-
+    // Do not start if used from Browser
 	if(reach.env.platform==reach.env.Type.BROWSER) {
 	} else {
 		var srcProj=new Proj4js.Proj(conf.srid);
@@ -346,7 +325,6 @@ var init=function() {
 
 		/** @type {reach.task.Fetch} */
 		var fetchSrc=new reach.task.Fetch('Load source points',opt.def.src,'ISO-8859-1');
-
 		var parseSrc=new reach.task.Custom('Parse source points',
 			/** @param {reach.task.Task} task */
 			function(task) {
@@ -357,7 +335,6 @@ var init=function() {
 
 		/** @type {reach.task.Fetch} */
 		var fetchDst=new reach.task.Fetch('Load target points',opt.def.dst,'ISO-8859-1');
-
 		var parseDst=new reach.task.Custom('Parse target points',
 			/** @param {reach.task.Task} task */
 			function(task) {
