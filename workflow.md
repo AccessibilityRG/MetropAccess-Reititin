@@ -90,7 +90,7 @@
             leaf=this.tree.insert(ll);
             data.push({type:mode,pt:pt,tile:tile});
           
-3. Bind orig/dest points to road network --> [reach.route.Batch](src/reach/route/Batch.js):
+3. Bind orig/dest points to road network i.e. create a Way from point to closest part of the road network --> [reach.route.Batch](src/reach/route/Batch.js):
         
         bindTask=new reach.task.Custom('Bind points', [...] )
         
@@ -106,15 +106,45 @@
                     }
         
         
-    - Initialize Routing using --> [reach.route.Batch](src/reach/route/Batch.js) --> case steps.initRouting:
+    - Initialize Routing by binding the od-points to the road network --> [reach.route.Batch](src/reach/route/Batch.js) 
+        - Step order:
+            1. itinRouting
+            2. nextEvent
+            3. findTile
+            4. findWay
+            5. bindNode
+            6. 
+    
+    - case steps.initRouting:
   
             node=event.pt.node
             dijkstra.startWayNode(node,conf,loadTile);  // loadTile is a function for loading tiles --> reach.road.Tile.prototype.load (Tile.js) --> importPack reads the tile 'reach.road.Tile.prototype.importPack' --> Stream.js handles the reading and decompression using 'reach.data.Codec()';
      
+    - 
+    
     
     - Search for stops and routing graph nodes up to maxWalk meters. Start from a road network tile node --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js) --> startWayNode=function(..){..}: 
     
-       - Initialize Radix heap 
+       - Initialize Radix heap --> [reach.data.RadixHeap(maxCost read from the conf)](src/reach/data/RadixHeap.js)
+       
+            this.heap = new reach.data.RadixHeap(conf.maxCost);
+            
+       - Determine maxWalk and maxCost from the conf
+       
+            this.walkCostPerM=conf.walkTimePerM*conf.walkCostMul;
+            this.maxCost=conf.maxWalk*this.walkCostPerM;
+       
+       - Iterate over the od-points and create new WayVisitors ([reach.route.WayVisitor](src/reach/route/WayVisitor.js)) of them:
+       
+            visitor=new reach.route.WayVisitor(this,node.wayList[wayNum],node.posList[wayNum],1,null,0);
+       
+       - Insert visitor into Radix Heap
+       
+            this.heap.insert(visitor,~~(visitor.cost+0.5));
+            
+       - Advance Dijkstras algorithm
+       
+            do ret=dijkstra.step(); while(!ret);
     
     
     
