@@ -1,6 +1,5 @@
 # Reititin Worklow
 
-
 **Main**
 
 [build/task-main.js](build/task-main.js) is the main that reads input arguments and starts the program:
@@ -93,6 +92,8 @@
           
 3. Bind orig/dest points to road network --> [reach.route.Batch](src/reach/route/Batch.js):
         
+        bindTask=new reach.task.Custom('Bind points', [...] )
+        
         batch.bindPoints(task,eventSet,dijkstra,conf)
         
     - Start iterating eventList (contains orig/dest points) and find walking routes from input points to stops and other input points --> case steps.nextEvent:
@@ -105,11 +106,19 @@
                     }
         
         
-    - Initialize Routing using --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js) --> case steps.initRouting:
+    - Initialize Routing using --> [reach.route.Batch](src/reach/route/Batch.js) --> case steps.initRouting:
   
             node=event.pt.node
-            
-            dijkstra.onVisitGraphNode=function(dijkstra,visitor,node) {
+            dijkstra.startWayNode(node,conf,loadTile);  // loadTile is a function for loading tiles --> reach.road.Tile.prototype.load (Tile.js) --> importPack reads the tile 'reach.road.Tile.prototype.importPack' --> Stream.js handles the reading and decompression using 'reach.data.Codec()';
+     
+    
+    - Search for stops and routing graph nodes up to maxWalk meters. Start from a road network tile node --> [reach.route.Dijkstra] (src/reach/route/Dijkstra.js) --> startWayNode=function(..){..}: 
+    
+       - Initialize Radix heap 
+    
+    
+    
+      dijkstra.onVisitGraphNode=function(dijkstra,visitor,node) {
                 var leg;
                 graphNodeCount++;
                 if(graphNodeCount<conf.nodeNearMax) {
@@ -122,11 +131,3 @@
                     dijkstra.stop();
                 }
             }
-
-    
-    - Search for stops and routing graph nodes up to maxWalk meters. Start from a road network tile node:
-        
-            dijkstra.startWayNode(node,conf,loadTile);
-        
-    
-
