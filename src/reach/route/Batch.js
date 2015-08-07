@@ -83,7 +83,8 @@ reach.route.Batch.prototype.bindPoints=function(task,eventSet,dijkstra,conf,disc
 
 		switch(step) {
 			// Initialize.
-			case steps.init:
+			case steps.init:  // 1
+
 				step++;
 
 //				eventNum=0;
@@ -91,20 +92,22 @@ reach.route.Batch.prototype.bindPoints=function(task,eventSet,dijkstra,conf,disc
 				step=steps.nextEvent;
 //				return(eventSet.count-eventNum);
 
-			case steps.nextEvent:
+			case steps.nextEvent: // 2
 				e=eventSet.getNext();
 				if(!e) return(0);
 				event=e;
-//console.log(event.pt.id);
-//console.log(event.pt);
-//console.log(event.type);
-//console.log(event);
+
+                //console.log(event.pt.id);
+                //console.log(event.pt);
+                //console.log(event.type);
+                //console.log(event);
 
 				// Clear counter for how many times input point was connected to a new road, when the initial
 				// location wasn't reachable from any stops.
 				retryCount=0;
 
-//console.log(event.type+' '+eventNum+' '+eventSet.count);
+                //console.log(event.type+' '+eventNum+' '+eventSet.count);
+
 				// Check if an input point is walking distance away in the future, so it should be bound to the
 				// road network in case a direct walk is the fastest route.
 				if(event.type==reach.loc.EventSet.Type.BIND) step=steps.findTile;
@@ -125,8 +128,8 @@ reach.route.Batch.prototype.bindPoints=function(task,eventSet,dijkstra,conf,disc
 					break;
 				}
 
-			case steps.findTile:
-//console.log('LOAD');
+			case steps.findTile: // 3
+                //console.log('LOAD');
 				ll=event.pt.ll;
 				tile=self.net.tree.findTile(ll,0);
 				if(!tile.isLeaf) {
@@ -134,15 +137,15 @@ reach.route.Batch.prototype.bindPoints=function(task,eventSet,dijkstra,conf,disc
 					break;
 				}
 				if(!tile.loaded) {
-//console.log(tile.path+'\t'+ll.toDeg());
+                    //console.log(tile.path+'\t'+ll.toDeg());
 					loadTile(tile);
 					return(task.block());
 				}
-//console.log('LOADED');
+                //console.log('LOADED');
 
 				areaList=tile.areaList;
 				if(areaList.length>0) {
-console.log('AREA '+event.pt.id);
+                    console.log('AREA '+event.pt.id);
 					node=null;
 					lat=ll.llat;
 					lon=ll.llon;
@@ -211,7 +214,7 @@ console.log('AREA '+event.pt.id);
 				wayFinder=self.net.tree.findWay(ll,loadTile,0,conf.snapDist);
 				step=steps.findWay;
 
-			case steps.findWay:
+			case steps.findWay: // 4
 				nearest=wayFinder();
 				if(!nearest) {
 					// Will be unblocked by loadTile when loading finishes.
@@ -280,7 +283,7 @@ console.log('AREA '+event.pt.id);
 
 				step=steps.bindNode;
 
-			case steps.bindNode:
+			case steps.bindNode: // 5
 				if(!retryCount) {
 					// Binding the point to the road network was successful so move to the next point.
 //					eventNum++;
@@ -292,7 +295,7 @@ console.log('AREA '+event.pt.id);
 				// TODO: the alternative road should be selected so that the direct line to it doesn't cross other reasonable roads.
 				step=steps.initRouting;
 
-			case steps.initRouting:
+			case steps.initRouting: // 6
 				node=event.pt.node;
 
 				if(!node) {
@@ -364,16 +367,17 @@ console.log('AREA '+event.pt.id);
 
 				step=steps.route;
 
-			case steps.route:
+			case steps.route: // 7
 				do ret=dijkstra.step(); while(!ret);
 				if(ret==-1) return(-eventSet.count-1);
 
 				dijkstra.onVisitGraphNode=null;
 				dijkstra.onVisitStopNode=null;
 
-console.log(event.pt.id+'\t'+stopCount);
+                console.log(event.pt.id+'\t'+stopCount);
 //				console.log(stopCount+' stops found.');
-				if(stopCount<conf.stopNearMin) {
+
+                if(stopCount<conf.stopNearMin) {
 					// TODO: Check niceDepartures to see if found stops should count.
 					if(dijkstra.finalCost<dijkstra.maxCost) {
 						// Retry if too few stops were found and it wasn't even possible to walk the maximum allowed distance.

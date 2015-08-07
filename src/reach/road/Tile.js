@@ -299,6 +299,7 @@ reach.road.Tile.prototype.importGraph=function() {
 /** @param {reach.task.Task} task
   * @param {reach.MU} ll
   * @param {function(reach.road.Tile)} callback */
+
 reach.road.Tile.prototype.load=function(task,ll,callback) {
 	/** @type {reach.road.Tile} */
 	var self=this;
@@ -621,6 +622,7 @@ reach.road.Tile.prototype.findWay=function(ll,runId) {
 			if(runId && way.runId && way.runId>runId) continue;
 
 			maybeNearest=way.findNearest(ll);
+
 			if(!nearest || maybeNearest.dist<nearest.dist) nearest=maybeNearest;
 		}
 	}

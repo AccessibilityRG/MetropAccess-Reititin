@@ -268,6 +268,7 @@ reach.road.TileTree.prototype.findWay=function(ll,loadTile,runId,snapDist) {
 	sentinel=/** @type {reach.road.NearWay} */ {way:null,dist:snapDist*snapDist};
 	nearest=sentinel;
 
+
 	function advance() {
 		var latSplit,lonSplit;
 		var tile,next;
@@ -279,6 +280,7 @@ reach.road.TileTree.prototype.findWay=function(ll,loadTile,runId,snapDist) {
 		while(stackPos>0) {
 			tile=tileStack[--stackPos];
 			dist=tile.sqDistTo(lat,lon);
+
 			if(dist>nearest.dist) continue;
 
 			if(tile.isLeaf) {

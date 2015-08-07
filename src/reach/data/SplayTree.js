@@ -39,6 +39,7 @@ reach.data.SplayTree.prototype.insert=function(key) {
 		if(d<0) {
 			if(!node.left) {
 				newNode=new reach.data.SplayTreeItem(key,node.prev,node);
+				newNode=new reach.data.SplayTreeItem(key,node.prev,node);
 				if(!newNode.prev) this.first=newNode;
 				node.left=newNode;
 				break;
