@@ -3,14 +3,28 @@
 **Kalkati-OSM build**
 
 1. Split OSM-data into quadtrees --> [RUN-ME.sh](kalkati/tiler/RUN-ME.sh)
-    - Read OSM --> [parse.c](kalkati/tiler/parse.c) 
-    - Output: kalkati/data/splits.txt
+    - Read OSM from given Protobuf file. Defined in: --> [parse.c](kalkati/tiler/parse.c) 
+    - Outputs: 
+        - kalkati/data/splits.txt --> Tile splits 
+        - kalkati/tiles.sql --> Tiles Database
 
 2. Parse HSL Kalkati-data into SQLite database --> [run-01.sh](kalkati/build/run-01.sh)
 
     - Date parser --> [parse-date.js](kalkati/build/parse-date.js)
     - Read XML dump and push to sqlite (written in C++) --> [kalkatiparser.cpp](kalkati/build/kalkati/parse/kalkatiparser.cpp)
-        - Output: kalkati/build/kalkati/hsl.sqlite & kalkati/build/kalkati/hsl.sql 
+        - Output: 
+            - kalkati/build/kalkati/hsl.sqlite --> SQLite3 database with information about 
+                - service providers (PT companies) in table `company`, 
+                - stations / stops in table `stations` --> **Now a [Python script](Python/read_sqlite.py) is available for creating a Shapefile from the stations.**
+                    - column `statid`: Unique station / stop-id  
+                - PT lines and their codes etc. in table `servicedata` --> Defines information about a single departure.
+                    - column `valid`: Provides information about the validity of the service, or in other words, information about the days when the service is being operated.
+                    - column `mode`: Provides information about the means of transport (bus/tram/train etc.) of the service.
+                    - column `long`: Defines the line number and other identifiers for the Service. ==> JORE code.
+                    - column `first`: FirstStop is used to specify subintervals of stations.
+                    - column `data`: Contains information about the actual service routes using space-separated text string of `statid`s in table `stations`
+            - kalkati/build/kalkati/hsl.sql --> SQL commands for creating the tables
+             
 3. Write Stops/Trips/Lines/Deltas to txt-files --> [run-02.sh](kalkati/build/run-02.sh)
     - Read hsl.sqlite db, process data and write to txt files --> [make-01-prepare.js](kalkati/build/make-01-prepare.js)
 
