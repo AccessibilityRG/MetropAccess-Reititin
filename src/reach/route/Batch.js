@@ -345,6 +345,8 @@ reach.route.Batch.prototype.bindPoints=function(task,eventSet,dijkstra,conf,disc
 					var leg;
 
 					stopCount++;
+
+
 					if(stopCount<conf.stopNearMax) {
 						if(!discardRoutes) {
 //							setType=event.pt.inputSet.mode;

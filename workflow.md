@@ -1,5 +1,19 @@
 # Reititin Worklow
 
+**Kalkati-OSM build**
+
+1. Split OSM-data into quadtrees --> [RUN-ME.sh](kalkati/tiler/RUN-ME.sh)
+    - Read OSM --> [parse.c](kalkati/tiler/parse.c) 
+    - Output: kalkati/data/splits.txt
+
+2. Parse HSL Kalkati-data into SQLite database --> [run-01.sh](kalkati/build/run-01.sh)
+
+    - Date parser --> [parse-date.js](kalkati/build/parse-date.js)
+    - Read XML dump and push to sqlite (written in C++) --> [kalkatiparser.cpp](kalkati/build/kalkati/parse/kalkatiparser.cpp)
+        - Output: kalkati/build/kalkati/hsl.sqlite & kalkati/build/kalkati/hsl.sql 
+3. Write Stops/Trips/Lines/Deltas to txt-files --> [run-02.sh](kalkati/build/run-02.sh)
+    - Read hsl.sqlite db, process data and write to txt files --> [make-01-prepare.js](kalkati/build/make-01-prepare.js)
+
 **Main**
 
 [build/task-main.js](build/task-main.js) is the main that reads input arguments and starts the program:

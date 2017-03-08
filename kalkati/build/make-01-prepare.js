@@ -890,6 +890,7 @@ function $reach$trans$City$$() {
   this.$dayCount$ = 0
 }
 ;var $city$$;
+
 Fiber(function compute() {
   function $write$$4$$($txt$$6$$) {
     fs.writeSync($fd$$2$$, $txt$$6$$, $JSCompiler_alias_NULL$$, "utf8")
