@@ -30,5 +30,5 @@ Toivonen, T., M. Salonen, H. Tenkanen, P. Saarsalmi, T. Jaakkola & J. Järvi (20
 
 ## Contributors
 
-BusFaster Oy: Juha Järvi
-University of Helsinki: Accessibility Research Group (Digital Geography Lab)
+- BusFaster Oy: Juha Järvi
+- University of Helsinki: Accessibility Research Group (Digital Geography Lab)
